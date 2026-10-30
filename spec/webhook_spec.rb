@@ -15,14 +15,15 @@ class MailcheckrWebhookSpec < Minitest::Test
     { timestamp: timestamp, signature: "v1=#{signature}" }
   end
 
-  def verify(raw_body: RAW_BODY, timestamp: NOW.to_i.to_s, signature: signed_headers[:signature], secret: SECRET, **options)
+  def verify(raw_body: RAW_BODY, timestamp: NOW.to_i.to_s, signature: signed_headers[:signature], secret: SECRET,
+             **)
     Mailcheckr::Webhook.verify_signature(
       raw_body: raw_body,
       timestamp: timestamp,
       signature: signature,
       secret: secret,
       now: NOW,
-      **options
+      **
     )
   end
 
@@ -40,7 +41,7 @@ class MailcheckrWebhookSpec < Minitest::Test
 
   def test_rejects_a_modified_body_or_signature
     refute verify(raw_body: "#{RAW_BODY} ")
-    refute verify(signature: "v1=#{'0' * 64}")
+    refute verify(signature: "v1=#{"0" * 64}")
   end
 
   def test_rejects_timestamps_outside_tolerance
