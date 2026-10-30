@@ -1,5 +1,6 @@
 # MailCheckr Ruby SDK
 
+[![Tests](https://github.com/Eazybright/mailcheckr/actions/workflows/test.yml/badge.svg)](https://github.com/Eazybright/mailcheckr/actions/workflows/test.yml)
 [![Gem Version](https://img.shields.io/gem/v/mailcheckr.svg)](https://rubygems.org/gems/mailcheckr)
 [![Gem](https://img.shields.io/gem/dt/mailcheckr.svg)](https://rubygems.org/gems/mailcheckr/)
 
